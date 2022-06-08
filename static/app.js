@@ -33,7 +33,9 @@ function addTodo(e) {
   trashButton.classList.add('trash-btn');
   todoDiv.appendChild(trashButton);
   todoList.appendChild(todoDiv);
-  sendTodo(todoInput.value);
+  if (todoInput.value.length > 0) {
+    sendTodo(todoInput.value);
+  }
   todoInput.value = '';
 }
 
@@ -47,6 +49,7 @@ function deleteCheck(e) {
     let id = todo.getAttribute('id');
     console.log(id);
     todo.classList.add('fall');
+    deleteTodo(id);
     todo.addEventListener('transitionend', () => {
       todo.remove();
     });
@@ -106,6 +109,19 @@ async function sendTodo(todo) {
   let res = await fetch('http://127.0.0.1:8000/api/create/', options);
   let data_received = await res.json();
   console.log(data_received);
+}
+async function deleteTodo(id) {
+  const options = {
+    method: 'Delete',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
+      'X-CSRFToken': myCookies.csrftoken,
+    },
+  };
+  let res = await fetch(`http://127.0.0.1:8000/api/delete/${id}`, options);
+  // let data_received = await res.json();
+  // console.log(data_received);
 }
 
 async function getData() {
