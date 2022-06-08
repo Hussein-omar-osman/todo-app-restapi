@@ -33,8 +33,8 @@ function addTodo(e) {
   trashButton.classList.add('trash-btn');
   todoDiv.appendChild(trashButton);
   todoList.appendChild(todoDiv);
-  if (todoInput.value.length > 0) {
-    sendTodo(todoInput.value);
+  if (todoInput.value.length > 0 && myCookies.csrftoken) {
+    sendTodo(todoInput.value, todoDiv);
   }
   todoInput.value = '';
 }
@@ -64,10 +64,10 @@ function deleteCheck(e) {
     todo.classList.toggle('true');
     console.log(allClasses);
     console.log(typeof allClasses);
-    if (todo.classList.contains('true')) {
+    if (todo.classList.contains('true') && myCookies.csrftoken) {
       console.log('yes');
       updateTodo(id, true);
-    } else {
+    } else if (!todo.classList.contains('true') && myCookies.csrftoken) {
       console.log('no');
       updateTodo(id, false);
     }
@@ -91,7 +91,7 @@ async function updateTodo(id, bool) {
   let data_received = await res.json();
   console.log(data_received);
 }
-async function sendTodo(todo) {
+async function sendTodo(todo, el) {
   const data = {
     body: todo,
     done: false,
@@ -109,6 +109,9 @@ async function sendTodo(todo) {
   let res = await fetch('http://127.0.0.1:8000/api/create/', options);
   let data_received = await res.json();
   console.log(data_received);
+  console.log(data_received.id);
+  console.log(data_received.body);
+  el.setAttribute('id', data_received['id']);
 }
 async function deleteTodo(id) {
   const options = {
