@@ -34,7 +34,7 @@
     <div class="todo-container">
       <ul class="todo-list">
         {% for todo in todos %}
-        <div class="todo" id="{{todo.id}}">
+        <div class="todo {{todo.done | lower}}" id="{{todo.id}}">
           <li class="todo-item">{{todo.body}}</li>
           <button class="complete-btn">
             <i class="fas fa-check"></i>

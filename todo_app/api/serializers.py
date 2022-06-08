@@ -9,9 +9,9 @@ class TaskSerializer(ModelSerializer):
   def create(self, data):
      return Task.objects.create(**data)
   def update(self, instance, data):
-     instance.body = data.get('body', instance.body)
+    #  instance.body = data.get('body', instance.body)
      instance.done = data.get('done', instance.done)
-     instance.created = data.get('created', instance.created)
+    #  instance.created = data.get('created', instance.created)
      
      instance.save()
      return instance
