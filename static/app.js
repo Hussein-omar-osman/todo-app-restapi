@@ -33,6 +33,9 @@ function deleteCheck(e) {
   if (item.classList[0] == 'trash-btn') {
     const todo = item.parentElement;
     //animation
+    console.log(todo);
+    let id = todo.getAttribute('id');
+    console.log(id);
     todo.classList.add('fall');
     todo.addEventListener('transitionend', () => {
       todo.remove();
@@ -51,7 +54,6 @@ async function sendTodo(todo) {
     done: false,
     created: '2022-06-07T18:00:16.211639Z',
   };
-  let csrftoken = 'nvuoeanvjds68rwnijsvgjb87bhuninhib78j';
   const options = {
     method: 'POST',
     headers: {
