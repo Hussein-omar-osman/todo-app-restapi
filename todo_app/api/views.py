@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from todo_app.models import Task
-# from django.contrib.auth.models import User
-from .serializers import TaskSerializer
+from django.contrib.auth.models import User
+from .serializers import TaskSerializer, UserSerializer
 
 
 @api_view(['GET'])
@@ -58,5 +58,21 @@ def single_todo(request, pk):
      return Response({'delete':'success'}, status=status.HTTP_204_NO_CONTENT)
      
      
-    
+@api_view(['GET'])
+def single_user(request, pk):
+   try:
+     user = User.objects.get(id=pk)
+   except:
+      return Response({'error':'not found'}, status=status.HTTP_404_NOT_FOUND)
+   if request.method == 'GET':
+     serializer = UserSerializer(user)
+     return Response(serializer.data)
+  
+  
+@api_view(['GET'])
+def get_users(request):
+   users = User.objects.all()
+   serializer = UserSerializer(users, many=True)
+   return Response(serializer.data)
+   
    

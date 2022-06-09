@@ -1,5 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 from todo_app.models import Task
+from django.contrib.auth.models import User
+
 
 
 class TaskSerializer(ModelSerializer):
@@ -15,3 +17,9 @@ class TaskSerializer(ModelSerializer):
      
      instance.save()
      return instance
+   
+class UserSerializer(ModelSerializer):
+  class Meta:
+    model = User
+    fields = ['id','username', 'email', 'first_name', 'last_name', 'date_joined']
+  
