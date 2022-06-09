@@ -59,17 +59,17 @@ function deleteCheck(e) {
   if (item.classList[0] == 'complete-btn') {
     const todo = item.parentElement;
     let id = todo.getAttribute('id');
-    console.log(id);
+    // console.log(id);
     let allClasses = todo.classList;
 
     todo.classList.toggle('true');
-    console.log(allClasses);
-    console.log(typeof allClasses);
+    // console.log(allClasses);
+    // console.log(typeof allClasses);
     if (todo.classList.contains('true') && myCookies.csrftoken) {
-      console.log('yes');
+      // console.log('yes');
       updateTodo(id, true);
     } else if (!todo.classList.contains('true') && myCookies.csrftoken) {
-      console.log('no');
+      // console.log('no');
       updateTodo(id, false);
     }
   }
@@ -88,7 +88,10 @@ async function updateTodo(id, bool) {
     },
     body: JSON.stringify(data),
   };
-  let res = await fetch(`http://127.0.0.1:8000/api/update/${id}`, options);
+  let res = await fetch(
+    `https://todo-app-restapi.herokuapp.com/api/update/${id}`,
+    options
+  );
   let data_received = await res.json();
   console.log(data_received);
 }
@@ -108,11 +111,14 @@ async function sendTodo(username, todo, el) {
     },
     body: JSON.stringify(data),
   };
-  let res = await fetch('http://127.0.0.1:8000/api/create/', options);
+  let res = await fetch(
+    'https://todo-app-restapi.herokuapp.com/api/create/',
+    options
+  );
   let data_received = await res.json();
-  console.log(data_received);
-  console.log(data_received.id);
-  console.log(data_received.body);
+  // console.log(data_received);
+  // console.log(data_received.id);
+  // console.log(data_received.body);
   el.setAttribute('id', data_received['id']);
 }
 async function deleteTodo(id) {
@@ -124,7 +130,10 @@ async function deleteTodo(id) {
       'X-CSRFToken': myCookies.csrftoken,
     },
   };
-  let res = await fetch(`http://127.0.0.1:8000/api/delete/${id}`, options);
+  let res = await fetch(
+    `https://todo-app-restapi.herokuapp.com/api/delete/${id}`,
+    options
+  );
   // let data_received = await res.json();
   // console.log(data_received);
 }

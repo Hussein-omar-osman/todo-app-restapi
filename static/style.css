@@ -116,9 +116,16 @@ form button:hover {
   text-transform: capitalize;
 }
 
-.mes {
+.we-info {
   position: relative;
   top: 50px;
   left: 50px;
+  color: #84eca3;
+}
+
+.mes {
+  position: relative;
+  top: 65px;
+  left: 65px;
   color: #84eca3;
 }

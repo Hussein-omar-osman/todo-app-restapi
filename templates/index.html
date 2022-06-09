@@ -31,6 +31,7 @@
     <button class="auth"><a href="{% url 'logout' %}">logout</a></button>
     {% else %}
     <button class="auth"><a href="{% url 'login' %}">login</a></button>
+    <h5 class="we-info">Only logged users todos will be saved.</h5>
     {% endif %} {% for message in messages %}
     <h5 class="mes">{{message}}</h5>
     {% endfor %}
