@@ -78,13 +78,23 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'d46h4stnfdd4gd',
+      'USER':'mphogwvpoyxnmq',
+      'PASSWORD':'f912ea3d045d467b6bb18d095da55121854a63e6a6d3eaa04d60b01ae9bbc9d8',
+      'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
+      'PORT':'5432',
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

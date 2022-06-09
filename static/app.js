@@ -1,6 +1,7 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const username = document.querySelector('.username');
 // const todo = document.querySelector('.todo');
 let getCookies = function () {
   let pairs = document.cookie.split(';');
@@ -34,7 +35,7 @@ function addTodo(e) {
   todoDiv.appendChild(trashButton);
   todoList.appendChild(todoDiv);
   if (todoInput.value.length > 0 && myCookies.csrftoken) {
-    sendTodo(todoInput.value, todoDiv);
+    sendTodo(username.textContent, todoInput.value, todoDiv);
   }
   todoInput.value = '';
 }
@@ -91,8 +92,9 @@ async function updateTodo(id, bool) {
   let data_received = await res.json();
   console.log(data_received);
 }
-async function sendTodo(todo, el) {
+async function sendTodo(username, todo, el) {
   const data = {
+    username: username,
     body: todo,
     done: false,
     created: '2022-06-07T18:00:16.211639Z',
@@ -126,17 +128,3 @@ async function deleteTodo(id) {
   // let data_received = await res.json();
   // console.log(data_received);
 }
-
-async function getData() {
-  let res = await fetch('http://127.0.0.1:8000/api/todos/');
-  if (res.ok) {
-    console.log('success');
-  } else {
-    console.log('unsuccess');
-  }
-  let data = await res.json();
-  console.log(data);
-}
-getData();
-
-console.log(myCookies.csrftoken);

@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Task(models.Model):
+   username = models.CharField(max_length=500, null=True)
    body = models.CharField(max_length=500, null=True)
    done = models.BooleanField(default=False)
    created = models.DateTimeField(auto_now_add=True)

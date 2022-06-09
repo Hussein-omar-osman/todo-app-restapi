@@ -7,8 +7,12 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def home(request):
-   todos = Task.objects.all()
-   return render(request, 'index.html', {'todos':todos})
+   if request.user:
+      todos = Task.objects.filter(username=request.user.username)
+      return render(request, 'index.html', {'todos':todos})
+   else:
+      todos = None
+      return render(request, 'index.html', {'todos':todos})
 
 def loginPage(request):
    var = 'login_user'

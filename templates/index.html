@@ -18,8 +18,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="shortcut icon"
+      href="{% static 'favicon.ico' %}"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <title>Todo List</title>
+    <title>Todo-App</title>
   </head>
   <body>
     {% if request.user.is_authenticated %}
@@ -31,8 +36,8 @@
     {% endfor %}
     <header>
       <h1>To do List</h1>
-      <h6 class="username" style="margin-top: 10px">
-        ({{request.user.username}})
+      <h6 style="margin-top: 10px">
+        (<span class="username">{{request.user.username}}</span>)
       </h6>
     </header>
 
