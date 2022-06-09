@@ -1,5 +1,3 @@
-from email import message
-from turtle import st
 from django.db import router
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
