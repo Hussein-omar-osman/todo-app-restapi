@@ -15,13 +15,13 @@ Run the IP address on the browser
 
 ## Endpoints
 
-- Get a single todo: 'https://todo-app-restapi.herokuapp.com/api/get/{id}' : Method = 'GET'
-- Get a single user: 'https://todo-app-restapi.herokuapp.com/api/user/{id}' : Method = 'GET'
-- Get all todos: 'https://todo-app-restapi.herokuapp.com/api/todos' : Method = 'GET'
-- Get all users: 'https://todo-app-restapi.herokuapp.com/api/users' : Method = 'GET'
+- Get a single todo: 'https://todo-app-restapi.herokuapp.com/api/get/{id}/' : Method = 'GET'
+- Get a single user: 'https://todo-app-restapi.herokuapp.com/api/user/{id}/' : Method = 'GET'
+- Get all todos: 'https://todo-app-restapi.herokuapp.com/api/todos/' : Method = 'GET'
+- Get all users: 'https://todo-app-restapi.herokuapp.com/api/users/' : Method = 'GET'
 - Create a todo: 'https://todo-app-restapi.herokuapp.com/api/create/' : Method = 'POST'
-- Update a todo: 'https://todo-app-restapi.herokuapp.com/api/update/{id}' : Method = 'PUT'
-- Delete a todo: 'https://todo-app-restapi.herokuapp.com/api/delete/{id}' : Method = 'DELETE'
+- Update a todo: 'https://todo-app-restapi.herokuapp.com/api/update/{id}/' : Method = 'PUT'
+- Delete a todo: 'https://todo-app-restapi.herokuapp.com/api/delete/{id}/' : Method = 'DELETE'
 
 ## User Stories
 
