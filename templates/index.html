@@ -22,10 +22,20 @@
     <title>Todo List</title>
   </head>
   <body>
+    {% if request.user.is_authenticated %}
+    <button class="auth"><a href="{% url 'logout' %}">logout</a></button>
+    {% else %}
+    <button class="auth"><a href="{% url 'login' %}">login</a></button>
+    {% endif %} {% for message in messages %}
+    <h5 class="mes">{{message}}</h5>
+    {% endfor %}
     <header>
       <h1>To do List</h1>
-      <h6 class="username" style="display: block">{{request.user.username}}</h6>
+      <h6 class="username" style="margin-top: 10px">
+        ({{request.user.username}})
+      </h6>
     </header>
+
     <form>
       <input type="text" class="todo-input" />
       <button class="todo-button" type="submit">

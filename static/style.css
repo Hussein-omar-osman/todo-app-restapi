@@ -98,3 +98,27 @@ form button:hover {
   transform: translateY(15rem) rotateZ(20deg);
   opacity: 0;
 }
+
+.auth {
+  position: relative;
+  top: 30px;
+  left: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #84eca3;
+}
+
+.auth a {
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+  text-transform: capitalize;
+}
+
+.mes {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  color: #84eca3;
+}
